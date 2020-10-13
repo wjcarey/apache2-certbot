@@ -8,9 +8,6 @@ if [ -z "$1" ]
         read INSTALL_DOMAIN
         echo "enter a email address for renewal notices ..."
         read NOTICE_EMAIL
-        sudo apt-get install certbot python3-certbot-apache -y
-        certbot -a webroot -i apache -w ${WEB_ROOT} -d ${INSTALL_DOMAIN} --agree-tos -m ${NOTICE_EMAIL} --no-eff-email --redirect
-        certbot renew --dry-run
     else
     WEB_ROOT=${1}
     INSTALL_DOMAIN=${2}
