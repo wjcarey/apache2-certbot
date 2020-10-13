@@ -12,10 +12,14 @@ if [ -z "$1" ]
         certbot -a webroot -i apache -w ${WEB_ROOT} -d ${INSTALL_DOMAIN} --agree-tos -m ${NOTICE_EMAIL} --no-eff-email --redirect
         certbot renew --dry-run
     else
-    sudo apt-get install certbot python3-certbot-apache -y
-    certbot -a webroot -i apache -w ${1} -d ${2} --agree-tos -m admin@admin.com --no-eff-email --redirect
-    certbot renew --dry-run
+    WEB_ROOT=${1}
+    INSTALL_DOMAIN=${2}
+    NOTICE_EMAIL=${3}
 fi
+
+sudo apt-get install certbot python3-certbot-apache -y
+certbot -a webroot -i apache -w ${WEB_ROOT} -d ${INSTALL_DOMAIN} --agree-tos -m ${NOTICE_EMAIL} --no-eff-email --redirect
+certbot renew --dry-run
 
 #SELF DELETE AND EXIT
 rm -- "$0"
