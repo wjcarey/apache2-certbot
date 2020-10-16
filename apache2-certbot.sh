@@ -15,7 +15,7 @@ if [ -z "$1" ]
 fi
 
 sudo apt-get install certbot python3-certbot-apache -y
-certbot -a webroot -i apache -w ${WEB_ROOT} -d ${INSTALL_DOMAIN} --agree-tos -m ${NOTICE_EMAIL} --no-eff-email --redirect
+certbot -a webroot -i apache -w ${WEB_ROOT} -d ${INSTALL_DOMAIN} --agree-tos --no-eff-email --redirect --register-unsafely-without-email
 certbot renew --dry-run
 
 #SELF DELETE AND EXIT
