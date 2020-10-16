@@ -6,12 +6,9 @@ if [ -z "$1" ]
         read WEB_ROOT
         echo "enter the domain name of your website ..."
         read INSTALL_DOMAIN
-        echo "enter a email address for renewal notices ..."
-        read NOTICE_EMAIL
     else
     WEB_ROOT=${1}
     INSTALL_DOMAIN=${2}
-    NOTICE_EMAIL=${3}
 fi
 
 sudo apt-get install certbot python3-certbot-apache -y
