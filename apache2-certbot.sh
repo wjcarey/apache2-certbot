@@ -14,7 +14,7 @@ fi
 INSTALL_PATH=$(realpath -s --canonicalize-missing $INSTALL_PATH)
 
 sudo apt-get install certbot python3-certbot-apache -y
-certbot -a webroot -i apache -w ${INSTALL_PATH} -d ${INSTALL_DOMAIN} --agree-tos --no-eff-email --redirect --register-unsafely-without-email
+certbot -a webroot -i apache -w ${INSTALL_PATH} -d ${DOMAIN_NAME} --agree-tos --no-eff-email --redirect --register-unsafely-without-email
 certbot renew --dry-run
 
 #SELF DELETE AND EXIT
